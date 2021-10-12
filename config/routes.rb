@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "lists", to: "lists#index"
   get "lists/:id", to: "lists#show", as: :list
 
-  get "lists/new", to: "lists#new"
+  get "lists/new", to: "lists#new", as: :new
   post "lists", to: "lists#create"
 
   delete "lists/:id", to: "lists#destroy"
