@@ -1,11 +1,15 @@
-<h1>All Movie Lists</h1>
 
 <ul>
   <% @lists.each do |list|  %>
     <li>
-      <%= list.name %>
+      <%= list.name %> <%= linkt_to "Delete List", destroy_path %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "Create a new list", new_path %>
+<h1>Create a new list</h1>
+<%= form_for @list, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :body, size: "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
